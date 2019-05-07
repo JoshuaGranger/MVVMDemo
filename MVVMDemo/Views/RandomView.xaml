@@ -6,6 +6,8 @@
              xmlns:Models="clr-namespace:MVVMDemo.Models"
              xmlns:Views="clr-namespace:MVVMDemo.Views"
              xmlns:ViewModels="clr-namespace:MVVMDemo.ViewModels"
+             xmlns:vml="clr-namespace:MVVMDemo.VML" 
+             vml:ViewModelLocator.AutoHookedUpViewModel="True" 
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>

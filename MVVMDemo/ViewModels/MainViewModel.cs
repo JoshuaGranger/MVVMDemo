@@ -4,37 +4,28 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace MVVMDemo.ViewModels
 {
     public class MainViewModel : INotifyPropertyChanged
     {
         // Properties
-        private MyICommand _navigateView1;
-        public MyICommand NavigateView1
-        {
-            get { return _navigateView1; }
-            set { _navigateView1 = value; RaisePropertyChanged("NavigateView1"); }
-        }
+        public MyICommand NavigateView1 { get; set; }
 
-        private MyICommand _navigateView2;
-        public MyICommand NavigateView2
-        {
-            get { return _navigateView2; }
-            set { _navigateView2 = value; RaisePropertyChanged("NavigateView2"); }
-        }
+        public MyICommand NavigateView2 { get; set; }
 
         private object _selectedViewModel;
         public object SelectedViewModel
         {
             get { return _selectedViewModel; }
-            set { _selectedViewModel = value; RaisePropertyChanged("SelectedViewModel"); }
+            set { _selectedViewModel = value; RaisePropertyChanged(nameof(SelectedViewModel)); }
         }
 
         // Constructor
         public MainViewModel()
         {
-            SelectedViewModel = new MainViewModel();
+            SelectedViewModel = this;
             NavigateView1 = new MyICommand(OnNavigateView1, CanNavigateView1);
             NavigateView2 = new MyICommand(OnNavigateView2, CanNavigateView2);
         }
