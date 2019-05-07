@@ -10,8 +10,6 @@ namespace MVVMDemo.Models
     public class Student : INotifyPropertyChanged
     {
         private string firstName;
-        private string lastName;
-
         public string FirstName
         {
             get
@@ -30,6 +28,7 @@ namespace MVVMDemo.Models
             }
         }
 
+        private string lastName;
         public string LastName
         {
             get { return lastName; }
