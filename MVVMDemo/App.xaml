@@ -1,0 +1,11 @@
+﻿<Application x:Class="MVVMDemo.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:Models="clr-namespace:MVVMDemo.Models"
+             xmlns:Views="clr-namespace:MVVMDemo.Views"
+             xmlns:ViewModels="clr-namespace:MVVMDemo.ViewModels"
+             StartupUri="Views/MainView.xaml">
+    <Application.Resources>
+         
+    </Application.Resources>
+</Application>
