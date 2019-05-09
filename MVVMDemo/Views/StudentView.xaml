@@ -10,11 +10,17 @@
    vml:ViewModelLocator.AutoHookedUpViewModel="True" 
    mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300">
 
-    <UserControl.Resources>
-    </UserControl.Resources>
-
     <Grid>
-        <ListBox ItemsSource="{Binding Students}" SelectedItem="{Binding SelectedStudent}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <ListBox ItemsSource="{Binding Students}"
+                 SelectedItem="{Binding SelectedStudent}"
+                 HorizontalAlignment="Left"
+                 VerticalAlignment="Top"
+                 Grid.Row="0">
             <ListBox.Resources>
                 <DataTemplate DataType="{x:Type Models:Student}">
                     <StackPanel Orientation="Horizontal">
@@ -33,8 +39,7 @@
         <Button Content="_Delete"
                 Command="{Binding DeleteCommand}"
                 Width="100"
-                Margin="10,10,10,10"
                 HorizontalAlignment="Left"
-                VerticalAlignment="Bottom"/>
+                Grid.Row="1"/>
     </Grid>
 </UserControl>

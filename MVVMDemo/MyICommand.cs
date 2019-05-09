@@ -24,6 +24,8 @@ namespace MVVMDemo
             _TargetCanExecuteMethod = canExecuteMethod;
         }
 
+        public event EventHandler CanExecuteChanged = delegate { };
+
         public void RaiseCanExecuteChanged()
         {
             CanExecuteChanged(this, EventArgs.Empty);
@@ -43,8 +45,6 @@ namespace MVVMDemo
 
             return false;
         }
-
-        public event EventHandler CanExecuteChanged = delegate { };
 
         void ICommand.Execute(object parameter)
         {

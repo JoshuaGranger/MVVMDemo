@@ -10,8 +10,12 @@
              vml:ViewModelLocator.AutoHookedUpViewModel="True" 
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <TextBlock Text="Hello, world!" Width="100" VerticalAlignment="Top" Margin="10,10,10,10"/>
-        <TextBlock Text="This is the other view that is just here for demonstration..." Width="500" VerticalAlignment="Top" Margin="10,30,10,10"/>
+    
+    <Grid Margin="1,1,1,1">
+        <ListBox ItemsSource="{Binding People}">
+            <ListBox.DataContext>
+                <ViewModels:MainViewModel/>
+            </ListBox.DataContext>
+        </ListBox>
     </Grid>
 </UserControl>

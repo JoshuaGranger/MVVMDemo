@@ -11,6 +11,8 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
+    <!--https://stackoverflow.com/questions/19654295/wpf-mvvm-navigate-views-->
+    
     <Window.Resources>
         <DataTemplate DataType="{x:Type ViewModels:StudentViewModel}">
             <Views:StudentView />
@@ -21,7 +23,12 @@
     </Window.Resources>
     
     <Grid Margin="1,1,1,1">
-        <StackPanel Margin="1,1,1,1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
             <Button Content="NavigateView1"
                 Command="{Binding NavigateView1}"
                 Width="100"
@@ -34,9 +41,9 @@
                 Margin="1,1,1,1"
                 HorizontalAlignment="Left"
                 VerticalAlignment="Bottom"/>
-            <Grid Margin="1,1,1,1" Height="350">
-                <ContentControl Content="{Binding SelectedViewModel}"/>
-            </Grid>
         </StackPanel>
+        <Grid Grid.Column="1">
+            <ContentControl Content="{Binding SelectedViewModel}"/>
+        </Grid>
     </Grid>
 </Window>

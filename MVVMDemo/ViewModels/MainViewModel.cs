@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,8 @@ namespace MVVMDemo.ViewModels
 
         public MyICommand NavigateView2 { get; set; }
 
+        public ObservableCollection<string> People { get; set; }
+
         private object _selectedViewModel;
         public object SelectedViewModel
         {
@@ -28,27 +31,34 @@ namespace MVVMDemo.ViewModels
             SelectedViewModel = this;
             NavigateView1 = new MyICommand(OnNavigateView1, CanNavigateView1);
             NavigateView2 = new MyICommand(OnNavigateView2, CanNavigateView2);
+            People = new ObservableCollection<string> { "Josh", "Not Josh" };
         }
 
         // Methods
         public void OnNavigateView1()
         {
             SelectedViewModel = new StudentViewModel();
+            NavigateView1.RaiseCanExecuteChanged();
+            NavigateView2.RaiseCanExecuteChanged();
         }
 
         public bool CanNavigateView1()
         {
-            return true;
+            var temp = !(SelectedViewModel.GetType() == typeof(StudentViewModel));
+            return temp;
         }
 
         public void OnNavigateView2()
         {
             SelectedViewModel = new RandomViewModel();
+            NavigateView1.RaiseCanExecuteChanged();
+            NavigateView2.RaiseCanExecuteChanged();
         }
 
         public bool CanNavigateView2()
         {
-            return true;
+            var temp = !(SelectedViewModel.GetType() == typeof(RandomViewModel));
+            return temp;
         }
 
         // PropertyChanged
